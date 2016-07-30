@@ -1,10 +1,7 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Untitled Document</title>
-</head>
+<?php get_header(); ?>
 
-<body>
-</body>
-</html>
+	<div id="content" class="site-content">
+    	<p>This is site content.</p>
+    </div><!-- #content -->
+
+<?php get_footer(); ?>
