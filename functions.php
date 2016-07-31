@@ -48,11 +48,21 @@ function tctheme_register_theme_customizer($wp_customizer){
 	);
 	
 	$wp_customizer->add_control(
-		'tctheme_link_color',
+		/*'tctheme_link_color',
 		array(
 			'section' => 'tctheme_display_options',
 			'label' => 'Link Color',
 			'type' => 'text'
+		)*/
+		
+		new WP_Customize_Color_Control(
+			$wp_customizer,
+			'tctheme_link_color',
+			array(
+				'label' => 'Link Color',
+				'section' => 'tctheme_display_options',
+				'settings' => 'tctheme_link_color'
+			)
 		)
 	);
 	
