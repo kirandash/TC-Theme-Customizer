@@ -1,6 +1,11 @@
         
         <div id="footer">
-        	&copy;<?php echo date('Y'); ?><?php bloginfo('title'); ?>All Rights Reserved
+        	<?php echo get_theme_mod('tctheme_footer_message'); ?>
+            <?php if('always' === get_theme_mod('tctheme_display_footer_title')): ?>
+            <div id="footer-title">
+            	<?php bloginfo('title'); ?>
+            </div><!--#footer-title-->
+            <?php endif; ?>
         </div><!--#footer-->
         
     </div><!-- #page -->

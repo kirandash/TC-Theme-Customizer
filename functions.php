@@ -18,6 +18,11 @@ function tctheme_customizer_css(){
 		a{
 			color: <?php echo get_theme_mod('tctheme_link_color'); ?>;
 		}
+		<?php if(false === get_theme_mod('tctheme_display_header')): ?>
+		#header {
+			display: none;
+		}
+		<?php endif; ?>
 	</style>
     <?php
 }
@@ -48,6 +53,69 @@ function tctheme_register_theme_customizer($wp_customizer){
 			'section' => 'tctheme_display_options',
 			'label' => 'Link Color',
 			'type' => 'text'
+		)
+	);
+	
+	$wp_customizer->add_setting(
+		'tctheme_display_header',
+		array(
+			'default' => 'true',
+			'transport' => 'postMessage'
+		)
+	);
+	
+	$wp_customizer->add_control(
+		'tctheme_display_header',
+		array(
+			'section' => 'tctheme_display_options',
+			'label' => 'Display Header?',
+			'type' => 'checkbox'
+		)
+	);
+	
+	$wp_customizer->add_section(
+		'tctheme_footer_options',
+		array(
+			'title' => 'Footer Options',
+			'priority' => '201'
+		)
+	);
+	
+	$wp_customizer->add_setting(
+		'tctheme_footer_message',
+		array(
+			'default' => 'Copyright 2016 All rights reserved.',
+			'transport' => 'postMessage'
+		)
+	);
+	
+	$wp_customizer->add_control(
+		'tctheme_footer_message',
+		array(
+			'section' => 'tctheme_footer_options',
+			'label' => 'Footer Message',
+			'type' => 'text'
+		)
+	);
+	
+	$wp_customizer->add_setting(
+		'tctheme_display_footer_title',
+		array(
+			'default' => 'always',
+			'transport' => 'postMessage'
+		)
+	);
+	
+	$wp_customizer->add_control(
+		'tctheme_display_footer_title',
+		array(
+			'section' => 'tctheme_footer_options',
+			'label' => 'Display Footer Title',
+			'type' => 'select',
+			'choices' => array(
+				'always' => 'Always',
+				'never' => 'Never'
+			)
 		)
 	);
 }
