@@ -25,5 +25,17 @@
 			});
 		});
 		
+		wp.customize('tctheme_background_image', function(value){
+			value.bind(function(to){
+				$('body').css('background-image','url('+to+')');
+			});
+		});
+		
+		wp.customize('tctheme_demo_file', function(value){
+			value.bind(function(to){
+				'' === to ? $('#sample-file').hide() : $('#sample-file').show();
+			});
+		});
+		
 	});	
 }(jQuery));

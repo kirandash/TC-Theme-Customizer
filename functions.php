@@ -23,6 +23,11 @@ function tctheme_customizer_css(){
 			display: none;
 		}
 		<?php endif; ?>
+		<?php if('' != get_theme_mod('tctheme_background_image')): ?>
+		body {
+			background-image: url(<?php echo get_theme_mod('tctheme_background_image'); ?>);
+		}
+		<?php endif; ?>
 	</style>
     <?php
 }
@@ -80,6 +85,46 @@ function tctheme_register_theme_customizer($wp_customizer){
 			'section' => 'tctheme_display_options',
 			'label' => 'Display Header?',
 			'type' => 'checkbox'
+		)
+	);
+	
+	$wp_customizer->add_setting(
+		'tctheme_background_image',
+		array(
+			'default' => '',
+			'transport' => 'postMessage'
+		)
+	);
+	
+	$wp_customizer->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customizer,
+			'tctheme_background_image',
+			array(
+				'section' => 'tctheme_display_options',
+				'label' => 'Background Image',
+				'settings' => 'tctheme_background_image'
+			)
+		)
+	);
+	
+	$wp_customizer->add_setting(
+		'tctheme_demo_file',
+		array(
+			'default' => '',
+			'transport' => 'postMessage'
+		)
+	);
+	
+	$wp_customizer->add_control(
+		new WP_Customize_Upload_Control(
+			$wp_customizer,
+			'tctheme_demo_file',
+			array(
+				'label' => 'Sample File',
+				'section' => 'tctheme_display_options',
+				'settings' => 'tctheme_demo_file'
+			)
 		)
 	);
 	
